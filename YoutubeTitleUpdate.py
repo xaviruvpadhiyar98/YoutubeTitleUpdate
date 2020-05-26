@@ -19,7 +19,7 @@ counter = 0
 
 while True:
 	videos_list_response = youtube.videos().list(id=youtubeId,part='snippet, statistics').execute()
-	if videos_list_response["items"][0]["statistics"]["viewCount"] != viewCount or videos_list_response["items"][0]["statistics"]["commentCount"] != commentCount or videos_list_response["items"][0]["statistics"]["likeCount"] != likeCount:
+	if videos_list_response["items"][0]["statistics"]["viewCount"] > viewCount or videos_list_response["items"][0]["statistics"]["commentCount"] > commentCount or videos_list_response["items"][0]["statistics"]["likeCount"] > likeCount:
 		viewCount = videos_list_response["items"][0]["statistics"]["viewCount"]
 		commentCount = videos_list_response["items"][0]["statistics"]["commentCount"]
 		likeCount = videos_list_response["items"][0]["statistics"]["likeCount"]	
